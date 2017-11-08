@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use jdbcsqlite3 as the database for Active Record
-gem 'activerecord-jdbcsqlite3-adapter'
+gem 'activerecord-jdbc-adapter'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -33,7 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem "trailblazer"
-gem "trailblazer-rails" # if you are in rails.
+
+gem "trailblazer-rails"
+
 gem "trailblazer-cells"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
