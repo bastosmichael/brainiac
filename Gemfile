@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use jdbcsqlite3 as the database for Active Record
-gem 'activerecord-jdbc-adapter'
+gem 'activerecord-jdbc-adapter', platform: :jruby
 # Use Puma as the app server
 gem 'thin', '~> 1.7'
 # Use SCSS for stylesheets
