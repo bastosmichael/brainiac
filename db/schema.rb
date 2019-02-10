@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_02_10_212816) do
 
   create_table "base_pages", id: false, force: :cascade do |t|
-    t.string "id"
+    t.string "id", null: false
     t.string "parser"
     t.text "body"
     t.datetime "created_at", null: false
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_02_10_212816) do
   end
 
   create_table "base_uris", id: false, force: :cascade do |t|
-    t.string "id"
-    t.string "url"
+    t.string "id", null: false
+    t.string "url", null: false
     t.string "crawler"
     t.integer "status"
     t.string "message"
