@@ -1,8 +1,8 @@
 class CreateBaseUris < ActiveRecord::Migration[5.2]
   def change
     create_table :base_uris, id: false do |t|
-      t.string :id
-      t.string :url
+      t.string :id, required: true
+      t.string :url, required: true
       t.string :crawler
       t.integer :status
       t.string :message
