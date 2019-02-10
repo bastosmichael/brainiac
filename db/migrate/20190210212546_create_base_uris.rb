@@ -1,6 +1,6 @@
 class CreateBaseUris < ActiveRecord::Migration[5.2]
   def change
-    create_table :base_uris do |t|
+    create_table :base_uris, id: false do |t|
       t.string :id
       t.string :url
       t.string :crawler
@@ -9,5 +9,8 @@ class CreateBaseUris < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :base_uris, :id
+    add_index :base_uris, :url
   end
 end
