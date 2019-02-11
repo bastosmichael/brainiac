@@ -24,7 +24,7 @@ class Base::Uri < ApplicationRecord
   end
 
   def name
-    host.split('.').first
+    host.gsub('.','_')
   end
 
   def host
