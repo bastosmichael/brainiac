@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Base::Uri < ApplicationRecord
-  self.primary_key = "id"  
+  self.primary_key = 'id'
   has_one :page
 
   before_save :find_id
@@ -7,7 +9,8 @@ class Base::Uri < ApplicationRecord
   def uri
     raise 'Missing url' unless url
     return @uri if @uri
-    @uri = self.clean_url
+
+    @uri = clean_url
   end
 
   def find_id
@@ -17,22 +20,23 @@ class Base::Uri < ApplicationRecord
   def clean_url
     uri = URI.parse(url)
     if uri.scheme.nil?
-      self.url = "http://#{uri.to_s}"
+      self.url = "http://#{uri}"
       uri = URI.parse(url)
     end
     uri
   end
 
   def name
-    host.gsub('.','_')
+    host.tr('.', '_')
   end
 
   def host
     return @host if @host
+
     host = uri.host.downcase
     begin
       @host = host.split(/\./)[1] + '.' + host.split(/\./)[2]
-    rescue
+    rescue StandardError
       @host = host.start_with?('www.') ? host[4..-1] : host
     end
   end
